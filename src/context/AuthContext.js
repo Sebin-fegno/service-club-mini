@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const Logout = () => {
-    axios.get(`${baseURL}/logout`);
+    axios.post(`${baseURL}/logout`);
   };
 
   return (

@@ -45,7 +45,7 @@ const Login = ({ navigation }) => {
             Login(username, password);
           }}
         />
-        <Button title="Logout" onPress={()=>{Logout()}} />
+        {/* <Button title="Logout" onPress={()=>{Logout()}} /> */}
       </View>
     </View>
   );

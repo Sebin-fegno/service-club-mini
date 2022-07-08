@@ -3,10 +3,10 @@ import React, { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext'
 
 const Home = () => {
-    const val = useContext(AuthContext)
+    const {isLoading,} = useContext(AuthContext);
   return (
     <View>
-      <Text>{val}</Text>
+      <Text>{isLoading}</Text>
     </View>
   )
 }
