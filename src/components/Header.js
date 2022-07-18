@@ -1,21 +1,38 @@
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text, Button, StyleSheet, Image } from "react-native";
 import React from "react";
 
 const Header = ({ navigation }) => {
-  const onPressButton = () => {
-    navigation.navigate("Home");
-  };
   return (
-    <View style={styles.button}>
-      <Text>Header</Text>
-      <Text>Hello world</Text>
-      <Button title="Click me" onPress={onPressButton}/>
+    <View style={styles.header}>
+      <View style={styles.menu}></View>
+      <View style={styles.menu_wrapper}>
+      <Image source={require("../images/menu.png")} style={{width:"20px",height:"30px"}}/>
+      </View>
+      <View>
+      <Image source={require("../images/notification.png")} style={{width:"20px",height:"30px"}}/>
+      </View>
     </View>
   );
 };
-const styles= StyleSheet.create({
-    button:{
-        backgroundColor:"red",
-    }
-})
+const styles = StyleSheet.create({
+  header: {
+    backgroundColor: "#fff",
+    paddingVertical:"10px",
+    paddingHorizontal:"25px",
+    flexDirection:"row",
+  },
+  menu_wrapper:{
+    flex:"auto"
+  },
+  menu:{
+    backgroundColor:"red",
+    width:"90%",
+    position:"fixed",
+    top:"0",
+    left:"0",
+    bottom:"0",
+    height:"500px",
+    zIndex:"999"
+  }
+});
 export default Header;
