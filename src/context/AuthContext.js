@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   const Login = (username, password) => {
     setIsLoading(true);
     axios
-      .post(`${baseURL}/api/v1/dashboard/user/login/`, {
+      .post(`${baseURL}/oauth/login.api`, {
         username,
         password,
       })
@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }) => {
   const Logout = () => {
     axios.post(`${baseURL}/logout`);
   };
-
+ 
   return (
     <AuthContext.Provider value={{ isLoading, userData, Login, Logout }}>
       {children}
