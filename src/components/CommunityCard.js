@@ -22,7 +22,7 @@ const CommunityCard = ({navigation}) => {
           <Text style={styles.community_card_wash_total}>280</Text>
           <Image
             source={require("../images/car.png")}
-            style={{ width: "30px", height: "30px" }}
+            style={{ width: 30, height: 30 }}
           />
         </View>
       </View>
@@ -34,38 +34,33 @@ const styles = StyleSheet.create({
   community_card_container: {
     flexDirection: "row",
     backgroundColor: "#fff",
-    borderBottomRightRadius: "10px",
-    borderBottomLeftRadius: "10px",
-    borderTopRightRadius: "10px",
-    borderTopLeftRadius: "10px",
-    paddingTop: "20px",
-    paddingBottom: "20px",
-    paddingLeft: "10px",
-    paddingRight: "10px",
-    // borderColor: "red",
-    // borderWidth: "1px",
+    borderBottomRightRadius: 10,
+    borderBottomLeftRadius: 10,
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingLeft: 10,
+    paddingRight: 10,
+    justifyContent:"space-between"
   },
   building_image: {
-    width: "100px",
-    height: "100px",
-    borderBottomRightRadius: "50%",
-    borderBottomLeftRadius: "50%",
-    borderTopRightRadius: "50%",
-    borderTopLeftRadius: "50%",
+    width: 100,
+    height: 100,
+    borderRadius:50,
   },
   building_image_wrapper: {
-    paddingRight: "10px",
+    paddingRight: 10,
   },
   community_card_detail: {
-    flex: "auto",
     justifyContent: "center",
   },
   commmunity_title: {
-    fontSize: "20px",
-    fontWeight: "600",
+    fontSize: 20,
+    fontWeight: '600',
   },
   commmunity_wash_types: {
-    height: "35px",
+    height: 35,
   },
   commmunity_place: {},
   community_card_wash: {
@@ -73,14 +68,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   community_card_wash_count: {
-    fontSize: "18px",
-    fontWeight: "600",
+    fontSize: 18,
+    fontWeight: '600',
   },
   community_card_wash_total: {
-    fontSize: "18px",
-    fontWeight: "600",
+    fontSize: 18,
+    fontWeight: '600',
     borderTopColor: "#000",
-    borderTopWidth: "1px",
+    borderTopWidth: 1,
   },
 });
 export default CommunityCard;

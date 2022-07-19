@@ -1,38 +1,56 @@
-import { View, Text, Button, StyleSheet, Image } from "react-native";
-import React from "react";
+import {
+  View,
+  Text,
+  Button,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Alert,
+} from "react-native";
+import React, { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 const Header = ({ navigation }) => {
+  const { Logout } = useContext(AuthContext);
+  const alertBox = () => {
+    Alert.alert("Are you sure", "Do you want to logout", [
+      {
+        text: "ok",
+        onPress: () => {
+          Logout();
+        }
+      },{
+        text:"cancel"
+      }
+    ]);
+  };
   return (
     <View style={styles.header}>
-      <View style={styles.menu}></View>
-      <View style={styles.menu_wrapper}>
-      <Image source={require("../images/menu.png")} style={{width:"20px",height:"30px"}}/>
-      </View>
-      <View>
-      <Image source={require("../images/notification.png")} style={{width:"20px",height:"30px"}}/>
-      </View>
+      <Text style={styles.logo}>Service Club</Text>
+      <TouchableOpacity onPress={()=>{alertBox()}}>
+        <Image source={require("../images/logout.png")} style={styles.icon} />
+      </TouchableOpacity>
     </View>
   );
 };
 const styles = StyleSheet.create({
   header: {
     backgroundColor: "#fff",
-    paddingVertical:"10px",
-    paddingHorizontal:"25px",
-    flexDirection:"row",
+    paddingVertical: 10,
+    paddingHorizontal: 25,
+    flexDirection: "row",
+    borderBottomColor: "gray",
+    borderBottomWidth: 1,
+    justifyContent: "space-between",
+    alignItems: "center",
   },
-  menu_wrapper:{
-    flex:"auto"
+  logo: {
+    fontWeight: "700",
+    fontSize: 25,
   },
-  menu:{
-    backgroundColor:"red",
-    width:"90%",
-    position:"fixed",
-    top:"0",
-    left:"0",
-    bottom:"0",
-    height:"500px",
-    zIndex:"999"
-  }
+  icon: {
+    width: 20,
+    height: 20,
+  },
 });
 export default Header;

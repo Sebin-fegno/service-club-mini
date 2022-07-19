@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
-import react, { createContext, useState } from "react";
+import react, { createContext, useEffect, useState } from "react";
 import { baseURL } from "../config/config";
 
 export const AuthContext = createContext();
@@ -17,19 +17,34 @@ export const AuthProvider = ({ children }) => {
       .then((res) => {
         setIsLoading(false);
         setUserData(res.data);
-        AsyncStorage.setItem("Token", JSON.stringify(res.data.key));
-        console.log(res);
+        AsyncStorage.setItem("Key", JSON.stringify(res.data));
       })
       .catch((err) => {
         setIsLoading(false);
         console.log(err);
       });
   };
-
   const Logout = () => {
-    axios.post(`${baseURL}/logout`);
+    axios.post(`${baseURL}/oauth/logout.api`).then((res) => {
+      AsyncStorage.removeItem("Key");
+      setUserData({});
+    });
   };
- 
+  const isLoggedIn = async () => {
+    try {
+      let data = await AsyncStorage.getItem("Key");
+      data = JSON.parse(data);
+      if (data) {
+        setUserData(data);
+      }
+    } catch (e) {
+      console.log("isLoggedIn error");
+    }
+  };
+
+  useEffect(() => {
+    isLoggedIn();
+  }, []);
   return (
     <AuthContext.Provider value={{ isLoading, userData, Login, Logout }}>
       {children}
