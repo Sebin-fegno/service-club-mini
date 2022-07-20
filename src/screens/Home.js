@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, Text, StyleSheet, Button, TouchableOpacity } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import CommunityCard from "../components/CommunityCard";
@@ -17,23 +17,36 @@ const Home = ({ navigation }) => {
         },
       })
       .then((res) => {
-        console.log(res);
         setData(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  });
+  },[]);
   return (
     <View style={styles.home}>
       <Header />
-      <CommunityCard navigation={navigation} />
-      {JSON.stringify(data)}
+         {data&& data.results && data.results.map((item)=>{
+          return(
+            <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("Vehicles");
+            }}
+            style={styles.card_wrapper}
+          >
+            <CommunityCard navigation={navigation} community={item}/>
+          </TouchableOpacity>
+          )
+         })}
     </View>
   );
 };
 const styles = StyleSheet.create({
-  home: {},
+  home: {
+  },
+  card_wrapper:{
+    marginBottom:10
+  }
 });
 
 export default Home;

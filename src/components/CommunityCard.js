@@ -1,9 +1,9 @@
 import react from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-const CommunityCard = ({navigation}) => {
+const CommunityCard = ({community}) => {
   return (
-    <TouchableOpacity onPress={()=>{navigation.navigate('Vehicles')}}>
       <View style={styles.community_card_container}>
+        {console.log(community)}
         <View style={styles.building_image_wrapper}>
           <Image
             source={require("../images/flat.jpg")}
@@ -11,11 +11,11 @@ const CommunityCard = ({navigation}) => {
           />
         </View>
         <View style={styles.community_card_detail}>
-          <Text style={styles.commmunity_title}>Trinity Building</Text>
+          <Text style={styles.commmunity_title}>{community.name}</Text>
           <Text style={styles.commmunity_wash_types}>
             Water wash,Power wash
           </Text>
-          <Text style={styles.commmunity_place}>Kakkanad</Text>
+          <Text style={styles.commmunity_place}>{community.city}</Text>
         </View>
         <View style={styles.community_card_wash}>
           <Text style={styles.community_card_wash_count}>0</Text>
@@ -26,7 +26,6 @@ const CommunityCard = ({navigation}) => {
           />
         </View>
       </View>
-    </TouchableOpacity>
   );
 };
 
@@ -42,7 +41,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     paddingLeft: 10,
     paddingRight: 10,
-    justifyContent:"space-between"
+    // justifyContent:"space-between"
   },
   building_image: {
     width: 100,
@@ -54,6 +53,7 @@ const styles = StyleSheet.create({
   },
   community_card_detail: {
     justifyContent: "center",
+    flex:1,
   },
   commmunity_title: {
     fontSize: 20,

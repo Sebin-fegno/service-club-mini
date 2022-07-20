@@ -26,7 +26,9 @@ const Header = ({ navigation }) => {
   };
   return (
     <View style={styles.header}>
-      <Text style={styles.logo}>Service Club</Text>
+      <TouchableOpacity onPress={()=>{Logout()}}>
+      <Image source={require('../images/logo.png')} style={styles.logo}/>
+      </TouchableOpacity>
       <TouchableOpacity onPress={()=>{alertBox()}}>
         <Image source={require("../images/logout.png")} style={styles.icon} />
       </TouchableOpacity>
@@ -45,8 +47,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   logo: {
-    fontWeight: "700",
-    fontSize: 25,
+    width:80,
+    height:35
   },
   icon: {
     width: 20,

@@ -1,5 +1,5 @@
 import react from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Button, Image, StyleSheet, Text, View } from "react-native";
 
 const VehicleCard = ({ navigation }) => {
   return (
@@ -19,10 +19,13 @@ const VehicleCard = ({ navigation }) => {
         <Text style={styles.wash_count}>4th Wash</Text>
       </View>
       <View style={styles.wash_details}>
-        <Text>Exterior wash : 2/7</Text>
+        <Text style={{color:"orange"}}>Exterior wash : 2/7</Text>
         <Text>Interior wash : 0/2</Text>
       </View>
-      <Text style={styles.customer_name}>Pavan Kumar</Text>
+      <View style={styles.btn_wrapper}>
+        <Button title="Confirm" style={styles.btn_confirm}/>
+        <Button title="cancel" style={styles.btn_cancel} color="red"/>
+      </View>
     </View>
   );
 };
@@ -55,7 +58,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   wash_count: {
-    backgroundColor: "red",
+    backgroundColor: "orange",
     color: "#FFF",
     paddingHorizontal: 10,
     paddingVertical: 20,
@@ -98,5 +101,13 @@ const styles = StyleSheet.create({
     fontSize:16,
     fontWeight:'500'
   },
+  btn_wrapper:{
+    flexDirection:"row",
+    justifyContent:"space-evenly",
+    marginTop:10
+  },
+  btn_cancel:{
+    color:"red"
+  }
 });
 export default VehicleCard;
