@@ -19,12 +19,12 @@ const VehicleCard = ({ navigation }) => {
         <Text style={styles.wash_count}>4th Wash</Text>
       </View>
       <View style={styles.wash_details}>
-        <Text style={{color:"orange"}}>Exterior wash : 2/7</Text>
+        <Text style={{color:"#ff6801"}}>Exterior wash : 2/7</Text>
         <Text>Interior wash : 0/2</Text>
       </View>
       <View style={styles.btn_wrapper}>
-        <Button title="Confirm" style={styles.btn_confirm}/>
-        <Button title="cancel" style={styles.btn_cancel} color="red"/>
+        <Button title="Confirm" style={styles.btn_confirm} onPress={()=>{navigation.navigate('Confirm Wash')}}/>
+        <Button title="cancel" style={styles.btn_cancel} color="red" onPress={()=>{navigation.navigate('Cancel Wash')}}/>
       </View>
     </View>
   );
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   wash_count: {
-    backgroundColor: "orange",
+    backgroundColor: "#ff6801",
     color: "#FFF",
     paddingHorizontal: 10,
     paddingVertical: 20,

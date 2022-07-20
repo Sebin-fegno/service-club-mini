@@ -6,7 +6,7 @@ const CommunityCard = ({community}) => {
         {console.log(community)}
         <View style={styles.building_image_wrapper}>
           <Image
-            source={require("../images/flat.jpg")}
+            source={{uri:community.logo}}
             style={styles.building_image}
           />
         </View>
@@ -15,7 +15,7 @@ const CommunityCard = ({community}) => {
           <Text style={styles.commmunity_wash_types}>
             Water wash,Power wash
           </Text>
-          <Text style={styles.commmunity_place}>{community.city}</Text>
+          <Text style={styles.commmunity_place}>{community.zone} ,{community.city}</Text>
         </View>
         <View style={styles.community_card_wash}>
           <Text style={styles.community_card_wash_count}>0</Text>

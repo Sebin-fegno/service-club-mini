@@ -26,7 +26,7 @@ const Header = ({ navigation }) => {
   };
   return (
     <View style={styles.header}>
-      <TouchableOpacity onPress={()=>{Logout()}}>
+      <TouchableOpacity>
       <Image source={require('../images/logo.png')} style={styles.logo}/>
       </TouchableOpacity>
       <TouchableOpacity onPress={()=>{alertBox()}}>
@@ -41,10 +41,9 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 25,
     flexDirection: "row",
-    borderBottomColor: "gray",
-    borderBottomWidth: 1,
     justifyContent: "space-between",
     alignItems: "center",
+    marginBottom:5,
   },
   logo: {
     width:80,

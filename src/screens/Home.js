@@ -26,13 +26,14 @@ const Home = ({ navigation }) => {
   return (
     <View style={styles.home}>
       <Header />
-         {data&& data.results && data.results.map((item)=>{
+         {data&& data.results && data.results.map((item,index)=>{
           return(
             <TouchableOpacity
             onPress={() => {
               navigation.navigate("Vehicles");
             }}
             style={styles.card_wrapper}
+            key={`community${index}`}
           >
             <CommunityCard navigation={navigation} community={item}/>
           </TouchableOpacity>

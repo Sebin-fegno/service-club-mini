@@ -62,10 +62,11 @@ const styles = StyleSheet.create({
   },
   input: {
     width: "100%",
-    height: 35,
-    padding: 20,
+    height: 45,
     fontSize: 18,
     marginBottom: 10,
+    paddingHorizontal:10,
+    paddingVertical:10,
     borderWidth: 1,
     borderColor: "#61e2ff",
     borderRadius: 8,

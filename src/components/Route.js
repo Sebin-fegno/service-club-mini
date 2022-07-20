@@ -7,6 +7,8 @@ import Home from "../screens/Home";
 import Login from "../screens/Login";
 import Vehicles from "../screens/Vehicles";
 import { AuthContext } from "../context/AuthContext";
+import WashConfirm from "../screens/WashConfirm";
+import WashCancel from "../screens/WashCancel";
 
 const Route = () => {
   const Stack = createNativeStackNavigator();
@@ -22,6 +24,8 @@ const Route = () => {
               options={{ headerShown: false }}
             />
             <Stack.Screen name="Vehicles" component={Vehicles} />
+            <Stack.Screen name="Confirm Wash" component={WashConfirm} />
+            <Stack.Screen name="Cancel Wash" component={WashCancel} />
           </>
         ) : (
           <Stack.Screen
